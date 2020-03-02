@@ -2,25 +2,37 @@
 
     <div class="card-body">  
 
-      <form>  
+      <form [formGroup]="angForm" (ngSubmit)="onSubmit()">  
 
         <div class="form-group">  
-          <label class="col-md-4">Student RollNo</label>  
-          <input type="number" class="form-control" />  
-        </div>  
-
+          <label class="col-md-4">Student Roll No :</label>  
+          <input type="text" class="form-control"  formControlName="StudentRollNo"   
+          #StudentRollNo  [ngClass]="{'is-invalid':formControls.StudentRollNo.touched && formControls.StudentRollNo.errors}"/>  
+          <div class="invalid-feedback" *ngIf="formControls.StudentRollNo.touched && formControls.StudentRollNo.errors" >
+              <label *ngIf="formControls.StudentRollNo.touched && formControls.StudentRollNo.errors.required">Student roll no. field is required.</label>
+            </div>
+          </div>
         <div class="form-group">  
-          <label class="col-md-4">Student Name </label>  
-          <input type="text" class="form-control" />  
+          <label class="col-md-4">Student Name : </label>  
+          <input type="text" class="form-control" formControlName="StudentName" #StudentName    
+          [ngClass]="{'is-invalid':formControls.StudentName.touched && formControls.StudentName.errors}"/>  
+          <div class="invalid-feedback" *ngIf="formControls.StudentName.touched && formControls.StudentName.errors" >
+              <label *ngIf="formControls.StudentName.touched && formControls.StudentName.errors.required">StudentName field is required.</label>
+      </div>
         </div> 
 
         <div class="form-group">  
-          <label class="col-md-4">Student percentage</label>  
-          <input type="number" class="form-control" />  
-        </div>  
+          <label class="col-md-4">Student percentage :</label>  
+          <input type="text" class="form-control" FormControlName="Percentage" #Percentage    
+          [ngClass]="{'is-invalid':formControls.Percentage.touched && formControls.Percentage.errors}"/>  
+          <div class="invalid-feedback" *ngIf="formControls.Percentage.touched && formControls.Percentage.errors" >
+              <label *ngIf="formControls.Percentage.touched && formControls.Percentage.errors.required">Percentage field is required.</label>
+      </div>
+        </div> 
 
+    
         <div class="form-group">  
-          <button type="submit" class="btn btn-primary">Insert student record</button>  
+          <button type="submit" class="btn btn-outline-primary">Insert student record</button>  
         </div>  
 
       </form>  

@@ -17,7 +17,8 @@ const routes: Routes = [
   {  
     path: 'students',  
     component: StudentGetComponent  
-  }  
+  } ,  
+  
 ];  
 @NgModule({  
   imports: [RouterModule.forRoot(routes)],  
